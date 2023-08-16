@@ -3,20 +3,29 @@ import flyer from "../../assets/images/pic1.jpeg";
 import Logo from "../../assets/images/logo.png";
 import { useFormik } from "formik";
 import formSchema from "./SpinFormSchema";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../store/Authentication/AuthSlice";
 // import '../../index.css'
 
-const onSubmit = (values, action) => {
-  console.log(values);
-  console.log(action);
-  console.log("submitted");
-};
-
 const SpinForm = () => {
+  const dispatch = useDispatch();
+
+  const onSubmit = (values, action) => {
+    if (values) {
+      dispatch(authActions.login());
+    } else {
+      return;
+    }
+    console.log(values);
+    // console.log(action);
+    console.log("submitted");
+  };
+
   const { values, errors, handleBlur, touched, handleSubmit, handleChange } =
     useFormik({
       initialValues: {
         accountNumber: "",
-        acceptedTerms : false
+        acceptedTerms: false,
       },
       validationSchema: formSchema,
       onSubmit,
@@ -58,15 +67,28 @@ const SpinForm = () => {
                   onBlur={handleBlur}
                 />
                 {errors.accountNumber && touched.accountNumber && (
-                  <p className=" text-[12px] text-red-500">{errors.accountNumber}</p>
+                  <p className=" text-[12px] text-red-500">
+                    {errors.accountNumber}
+                  </p>
                 )}
                 <div className="py-5">
-                  <input type="checkbox"  id="acceptedTerms" name="acceptedTerms" value={values.acceptedTerms} onChange={handleChange} onBlur={handleBlur}/>
+                  <input
+                    type="checkbox"
+                    id="acceptedTerms"
+                    name="acceptedTerms"
+                    value={values.acceptedTerms}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
                   <label htmlFor="agree">
                     {" "}
                     By clicking you agree to our terms and conditions
                   </label>
-                  {errors.acceptedTerms && touched.acceptedTerms && <p className="text-[11px] text-red-500">{errors.acceptedTerms}</p>}
+                  {errors.acceptedTerms && touched.acceptedTerms && (
+                    <p className="text-[11px] text-red-500">
+                      {errors.acceptedTerms}
+                    </p>
+                  )}
                 </div>
                 <button
                   type="submit"

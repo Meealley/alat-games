@@ -59,7 +59,7 @@ const AlatSpin = () => {
             <h2 className="uppercase font-bold">spin & win</h2>
           </div>
         </div>
-        <div className="parent-container md:h-[400px] md:h-[300px]">
+        <div className="parent-container">
           <Wheel
             outerBorderColor={"#fff"}
             outerBorderWidth={1}

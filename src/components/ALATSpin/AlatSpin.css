@@ -1,0 +1,36 @@
+.parent-container {
+  width: 750px;
+  height: 750px;
+  position: relative;
+
+  > div {
+    height: 100%;
+    width: 100%;
+    max-height: unset;
+    max-width: unset;
+  }
+  > button {
+    cursor: pointer;
+  }
+  
+}
+
+.btn_logo {
+  top: 43%;
+  left: 43%;
+  position: absolute;
+  background: #fff;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  z-index: 20;
+   > img {
+    object-fit: contain;
+    padding-left: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+   }
+}

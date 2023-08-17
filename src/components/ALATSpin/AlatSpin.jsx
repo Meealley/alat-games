@@ -46,6 +46,24 @@ const AlatSpin = () => {
       //   const newPrizeNumber = 1;
       setPrizeNumber(newPrizeNumber);
       setMustSpin(true);
+      if (newPrizeNumber === 22) {
+        console.log("You have won something");
+      }
+      else if (newPrizeNumber === 16){
+        console.log("You have won a big car")
+      }
+      else if (newPrizeNumber === 4){
+        console.log("You have won a 1,000")
+      }
+      else if (newPrizeNumber === 18){
+        console.log("You have won a house")
+      }
+      else if (newPrizeNumber === 11){
+        console.log("You have won Me")
+      }
+      else if (newPrizeNumber === 9){
+        console.log("You have won a laptop")
+      }
       console.log(newPrizeNumber);
     }
   };

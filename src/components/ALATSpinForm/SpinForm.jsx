@@ -74,6 +74,7 @@ const SpinForm = () => {
                 <div className="py-5">
                   <input
                     type="checkbox"
+                    className="cursor-pointer"
                     id="acceptedTerms"
                     name="acceptedTerms"
                     value={values.acceptedTerms}
